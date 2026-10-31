@@ -601,7 +601,14 @@
     try {tg.ready();tg.expand();tg.setHeaderColor?.('#fffdf7');}
     catch (_) { /* обычный браузер, Telegram API не обязателен */ }
   }
+   const tg = window.Telegram?.WebApp;
+   function returnToBot() {
+     if (tg) {
+    tg.sendData("purrtok_return");
+     }
+   }
   window.addEventListener('telegram-ready',initTelegram);
   initTelegram();
+   returnToBot();
   renderStats(); renderGameHud();
 })();
