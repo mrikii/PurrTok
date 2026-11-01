@@ -598,7 +598,16 @@
   function initTelegram() {
     const tg = window.Telegram?.WebApp;
     if (!tg) return;
-    try {tg.ready();tg.expand();tg.setHeaderColor?.('#fffdf7');}
+    try {tg.ready();tg.expand();tg.setHeaderColor?.('#fffdf7');
+        // Показываем кнопку Назад в Telegram
+      tg.BackButton.show();
+
+      // Вешаем на нее отправку данных при клике
+      tg.BackButton.onClick(function() {
+          tg.sendData("Пользователь нажал назад");
+          tg.close();
+      });}
+       
     catch (_) { /* обычный браузер, Telegram API не обязателен */ }
   }
    const tg = window.Telegram?.WebApp;
