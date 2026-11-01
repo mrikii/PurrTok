@@ -618,6 +618,5 @@
    }
   window.addEventListener('telegram-ready',initTelegram);
   initTelegram();
-   returnToBot();
   renderStats(); renderGameHud();
 })();
